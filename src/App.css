@@ -1,0 +1,201 @@
+.hud-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.hud-panel {
+  backdrop-filter: blur(16px);
+  background:
+    linear-gradient(180deg, rgba(13, 19, 34, 0.78), rgba(13, 19, 34, 0.5));
+  border: 1px solid rgba(166, 203, 255, 0.24);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+  color: #f5f7ff;
+}
+
+.hud-panel-top {
+  width: min(360px, calc(100vw - 40px));
+  border-radius: 22px;
+  padding: 18px 20px;
+}
+
+.hud-panel-quest {
+  width: min(420px, calc(100vw - 40px));
+  border-radius: 22px;
+  padding: 18px 20px;
+}
+
+.hud-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8fb9ff;
+  margin-bottom: 10px;
+}
+
+.hud-title {
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.hud-subtitle {
+  margin-top: 10px;
+  color: rgba(245, 247, 255, 0.78);
+  line-height: 1.45;
+  font-size: 14px;
+}
+
+.hud-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.hud-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 26px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #70f0b6, #3eb8ff);
+  color: #03131f;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.hud-status {
+  font-size: 13px;
+  color: rgba(245, 247, 255, 0.75);
+}
+
+.hud-quest-title {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hud-quest-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(245, 247, 255, 0.82);
+}
+
+.hud-progress-meta {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  font-size: 12px;
+  color: rgba(245, 247, 255, 0.68);
+}
+
+.hud-progress-bar {
+  position: relative;
+  margin-top: 12px;
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hud-progress-bar-secondary {
+  margin-top: 18px;
+}
+
+.hud-progress-label {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 8px);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 247, 255, 0.56);
+}
+
+.hud-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #72eac8, #72abff 55%, #f6d06a);
+  box-shadow: 0 0 18px rgba(114, 171, 255, 0.38);
+  transition: width 180ms ease;
+}
+
+.hud-progress-fill-secondary {
+  background: linear-gradient(90deg, #ffb873, #ffd86f);
+  box-shadow: 0 0 18px rgba(255, 200, 114, 0.35);
+}
+
+.mission-banner {
+  position: fixed;
+  left: 50%;
+  top: 28px;
+  transform: translateX(-50%);
+  z-index: 12000;
+  width: min(620px, calc(100vw - 32px));
+  padding: 18px 22px;
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(255, 214, 122, 0.94), rgba(255, 155, 112, 0.94));
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
+  color: #29170d;
+  animation: missionBannerIn 320ms ease;
+}
+
+.mission-banner-badge {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.mission-banner-title {
+  margin-top: 6px;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.mission-banner-body {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(41, 23, 13, 0.82);
+}
+
+@keyframes missionBannerIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .hud-layer {
+    justify-content: flex-end;
+  }
+
+  .hud-panel-quest {
+    width: auto;
+    max-width: min(420px, calc(100vw - 40px));
+  }
+
+  .mission-banner {
+    top: auto;
+    bottom: 24px;
+  }
+}
